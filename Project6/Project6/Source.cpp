@@ -5,6 +5,7 @@ Colin Durocher - 10/5/2017 - 3
 Assignment Name : Program Problem 3 : Three_Digit_Ascend_Descend_Selection
 
 */
+// Edited By Luke Hage
 
 // Libraries
 
@@ -37,16 +38,30 @@ void main() {
 	int Number;
 
 	// Display Text
-	cout << "Type a 3 digit number.\n";
+	cout << "Type a 3 digit whole positive number.\n";
 	cin >> Number;
-	int A = Number / 100;
-	int B = (Number % 100 ) /10;
-	int C = (Number % 100) % 10;
-	if (A < B && B < C)
-		cout << "your number is asending\n";
-	else if (A > B && B > C)
-		cout << "your number is desending\n";
-	else
-		cout << "your number is not asending and it is not  desending\n";
-	pause(); // pauses to see the displayed text
+     for (int n = 0; 99 < Number && Number < 1000; n++ ) {
+		
+	     // Math to find if asending, desending, or neither
+		int A = Number / 100;
+		int B = (Number % 100) / 10;
+		int C = (Number % 100) % 10;
+		
+	     // Loop
+		if (A < B && B < C) {
+			cout << "Your number is asending\n";
+		}
+		else if (A > B && B > C)
+			cout << "Your number is desending\n";
+		else
+			cout << "Your number is not in asending or desending order\n";
+		cout << "Type a 3 digit number.\n";
+		cin >> Number;
+		if (n == 29) { // so it ends after 30 times
+			pause(); // pauses to see the displayed text
+			break; // Closes program after it has gone 30 times or if a none three digit number is entered
+		}
+		
+	}
+	
 }
